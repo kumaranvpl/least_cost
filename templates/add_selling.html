@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block content %}
+    <form action="/selling/add" method="post">
+        <label>Seller:</label><select id="seller_id" name="seller_id">
+        {% for key, value in sellers_dict.iteritems() %}
+            <option value="{{ key }}">{{ value }}</option>
+        {% endfor %}
+        </select><br /><br />
+        <label>Product:</label><select id="product_id" name="product_id">
+        {% for key, value in products_dict.iteritems() %}
+            <option value="{{ key }}">{{ value }}</option>
+        {% endfor %}
+        </select><br /><br />
+        <label>Price:</label><input type="text" name="price"><br /><br />
+        <input type="submit" value="Submit">
+      </form>
+{% endblock %}

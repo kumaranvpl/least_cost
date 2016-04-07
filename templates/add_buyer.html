@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block content %}
+    <form action="/buyer/add" method="post">
+        <label>Buyer Name:</label><input type="text" name="buyer_name"><br /><br />
+        <label>Buyer State:</label><select id="state_id" name="state_id">
+        {% for key, value in states_dict.iteritems() %}
+            <option value="{{ key }}">{{ value }}</option>
+        {% endfor %}
+        </select><br /><br />
+        <input type="submit" value="Submit">
+      </form>
+{% endblock %}
