@@ -1,0 +1,11 @@
+{
+  "secret_key" : "this is a secret key",
+  "db" :{
+    "mysql" : {
+      "username" : "root",
+      "password" : "root",
+      "host" : "localhost",
+      "database" : "least_cost"
+      }
+  }
+}
