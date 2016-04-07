@@ -18,6 +18,14 @@ class StateOperations:
         }
         return state_dict
 
+    @classmethod
+    def find_all(self):
+        states = State.query.all()
+        states_dict = {}
+        for state in states:
+            states_dict[state.state_id] = state.state_name
+        return states_dict
+
 
 class ProductOperations:
     @classmethod
@@ -34,6 +42,14 @@ class ProductOperations:
             'product_name': product.product_name
         }
         return product_dict
+
+    @classmethod
+    def find_all(self):
+        products = Product.query.all()
+        products_dict = {}
+        for product in products:
+            products_dict[product.product_id] = product.product_name
+        return products_dict
 
 
 class SellerOperations:
@@ -53,6 +69,14 @@ class SellerOperations:
         }
         return seller_dict
 
+    @classmethod
+    def find_all(self):
+        sellers = Seller.query.all()
+        sellers_dict = {}
+        for seller in sellers:
+            sellers_dict[seller.seller_id] = seller.seller_name
+        return sellers_dict
+
 
 class BuyerOperations:
     @classmethod
@@ -70,6 +94,14 @@ class BuyerOperations:
             'state_id': buyer.state_id
         }
         return buyer_dict
+
+    @classmethod
+    def find_all(self):
+        buyers = Buyer.query.all()
+        buyers_dict = {}
+        for buyer in buyers:
+            buyers_dict[buyer.buyer_id] = buyer.buyer_name
+        return buyers_dict
 
 
 class SellingOperations:
