@@ -121,3 +121,21 @@ class SellingOperations:
             'price': selling.price
         }
         return selling_dict
+
+    @classmethod
+    def find_by_product(self, product_id):
+        sellings = Selling.query.filter_by(product_id=product_id)
+        if sellings is None:
+            return False
+        else:
+            #i = 0
+            sellings_lst = []
+            for selling in sellings:
+                sellings_lst.append({
+                    "selling_id": selling.selling_id,
+                    "seller_id": selling.seller_id,
+                    "product_id": selling.product_id,
+                    "price": selling.price
+                })
+                #i += 1
+            return sellings_lst

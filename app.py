@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 from route_functions import config, add_state, add_product, add_seller, add_buyer, add_selling
 from route_functions import find_all_states, find_all_products, find_all_sellers, find_all_buyers
+from route_functions import calculate_least_cost
 
 
 app = Flask(__name__)
@@ -48,11 +49,17 @@ def render_add_selling():
     return render_template('add_selling.html', sellers_dict=find_all_sellers(), products_dict=find_all_products())
 
 
+@app.route('/calculate_least_cost')
+def render_calculate_least_cost():
+    return render_template('least_cost.html', buyers_dict=find_all_buyers(), products_dict=find_all_products())
+
+
 app.add_url_rule('/state/add', view_func=add_state, methods=['GET', 'POST'])
 app.add_url_rule('/product/add', view_func=add_product, methods=['GET', 'POST'])
 app.add_url_rule('/seller/add', view_func=add_seller, methods=['GET', 'POST'])
 app.add_url_rule('/buyer/add', view_func=add_buyer, methods=['GET', 'POST'])
 app.add_url_rule('/selling/add', view_func=add_selling, methods=['GET', 'POST'])
+app.add_url_rule('/calculate/least_cost', view_func=calculate_least_cost, methods=['GET', 'POST'])
 
 
 if __name__ == '__main__':

@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block content %}
+    <form action="/calculate/least_cost" method="post">
+        <label>Buyer:</label><select id="buyer_id" name="buyer_id">
+        {% for key, value in buyers_dict.iteritems() %}
+            <option value="{{ key }}">{{ value }}</option>
+        {% endfor %}
+        </select><br /><br />
+        <label>Product:</label><select id="product_id" name="product_id">
+        {% for key, value in products_dict.iteritems() %}
+            <option value="{{ key }}">{{ value }}</option>
+        {% endfor %}
+        </select><br /><br />
+        <input type="submit" value="Calculate Least Cost">
+      </form>
+{% endblock %}
